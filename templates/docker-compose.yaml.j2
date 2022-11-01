@@ -11,9 +11,6 @@ services:
     ports:
       - "53:53"
       - "53:53/udp"
-{% if optional_tasks.compose_file.containers.coredns.healthcheck.enabled %}
-      - "127.0.0.1:9099:9099"
-{% endif %}
     mem_limit: {{ optional_tasks.compose_file.containers.coredns.memoryLimit }}
     mem_reservation: {{ optional_tasks.compose_file.containers.coredns.memoryReservation }}
     cpus: {{ optional_tasks.compose_file.containers.coredns.cpuLimit }}
@@ -23,12 +20,4 @@ services:
     command:
     - "-conf"
     - "/root/Corefile"
-{% if optional_tasks.compose_file.containers.coredns.healthcheck.enabled %}
-    healthcheck:
-      test: curl --fail http://127.0.0.1:9099/health || exit 1
-      interval: 5s
-      retries: 3
-      start_period: 10s
-      timeout: 10s
-{% endif %}
 {% endif %}

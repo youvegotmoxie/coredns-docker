@@ -22,7 +22,5 @@ optional_tasks:
         memoryLimit: 500M
         memoryReservation: 250M
         cpuLimit: 0.3
-        healthcheck:
-          enabled: true
     environment:
       TZ: "America/Chicago"

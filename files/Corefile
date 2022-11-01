@@ -1,4 +1,4 @@
-.:53 {
+. {
     forward . /etc/resolv.conf
     log
     errors

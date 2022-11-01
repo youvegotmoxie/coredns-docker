@@ -1,8 +1,8 @@
 ---
-- name: "Copy media stack Docker compose file"
+- name: "Copy Docker compose file"
   template:
-    src: media-stack.yaml.j2
-    dest: "{{ homedir }}/{{ optional_tasks.compose_basedir }}/media_stack/docker-compose.yaml"
+    src: docker-compose.yaml.j2
+    dest: "{{ homedir }}/{{ optional_tasks.compose_basedir }}/coredns/docker-compose.yaml"
     owner: "{{ docker.user }}"
     group: "{{ docker.user }}"
     mode: 0600
@@ -20,13 +20,13 @@
 
 - name: "Start containers"
   community.docker.docker_compose:
-    project_src: "{{ homedir }}/{{ optional_tasks.compose_basedir }}/media_stack"
+    project_src: "{{ homedir }}/{{ optional_tasks.compose_basedir }}/coredns"
     build: no
     pull: yes
 
 - name: "Fix file and directory ownership"
   file:
-    path: "{{ homedir }}/{{ optional_tasks.compose_basedir }}/media_stack"
+    path: "{{ homedir }}/{{ optional_tasks.compose_basedir }}/coredns"
     recurse: yes
     owner: "{{ docker.user }}"
     group: "{{ docker.user }}"

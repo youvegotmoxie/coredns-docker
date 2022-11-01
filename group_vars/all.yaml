@@ -4,6 +4,9 @@ docker:
   groups:
   - docker
 
+additional_packages:
+- unrar
+
 optional_tasks:
   setup_compose: true
   compose_basedir: docker

@@ -3,6 +3,7 @@
     log
     errors
     cache
+    prometheus
 }
 
 version.bind version.server authors.bind hostname.bind id.server {

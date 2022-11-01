@@ -8,7 +8,7 @@
     mode: 0600
 
 - name: "Copy CoreDNS config"
-  file:
+  copy:
     src: Corefile
     dest: "{{ homedir }}/{{ optional_tasks.compose_basedir }}/coredns/config/Corefile"
     owner: "{{ docker.user }}"

@@ -3,6 +3,7 @@
     log
     errors
     cache
+    health :9099
 }
 
 version.bind version.server authors.bind hostname.bind id.server {

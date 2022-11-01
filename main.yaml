@@ -1,7 +1,7 @@
 ---
-- name: "Configure media server"
+- name: "Configure DNS Server"
   gather_facts: yes
-  hosts: media
+  hosts: all
   vars_files:
     - group_vars/all.yaml
   tasks:

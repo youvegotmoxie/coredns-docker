@@ -10,5 +10,6 @@
         - "ansible_distribution == 'Ubuntu'"
         fail_msg: "This playbook contains apt specific tasks that will not work on non-Ubuntu systems"
     - import_tasks: tasks/docker-user.yaml
+    - import_tasks: tasks/compose-docker.yaml
     - import_tasks: tasks/coredns.yaml
       when: optional_tasks.setup_compose is true

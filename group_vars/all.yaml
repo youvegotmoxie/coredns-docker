@@ -12,6 +12,7 @@ optional_tasks:
   compose_basedir: docker
   compose_file_dirs:
   - coredns
+  - coredns/config
   compose_file:
     composeVersion: "3.7"
     restartPolicy: unless-stopped

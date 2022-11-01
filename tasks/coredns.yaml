@@ -7,6 +7,14 @@
     group: "{{ docker.user }}"
     mode: 0600
 
+- name: "Copy CoreDNS config"
+  file:
+    src: Corefile
+    dest: "{{ homedir }}/{{ optional_tasks.compose_basedir }}/coredns/config/Corefile"
+    owner: "{{ docker.user }}"
+    group: "{{ docker.user }}"
+    mode: 0600
+
 - name: "Install pip3"
   package:
     name: python3-pip

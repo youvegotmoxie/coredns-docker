@@ -26,6 +26,19 @@
     - docker
     - docker-compose
 
+- name: "Disable systemd-resolved"
+  service:
+    name: systemd-resolved
+    state: disabled
+
+- name: "Configure resolv.conf"
+  copy:
+    src: resolv.conf
+    dest: /run/systemd/resolve/stub-resolv.conf
+    owner: root
+    group: root
+    mode: 0644
+
 - name: "Start containers"
   community.docker.docker_compose:
     project_src: "{{ homedir }}/{{ optional_tasks.compose_basedir }}/coredns"

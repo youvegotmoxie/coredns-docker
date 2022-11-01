@@ -8,8 +8,8 @@ services:
       - {{ homedir }}/{{ optional_tasks.compose_basedir }}/coredns/config:/root
       - "/etc/localtime:/etc/localtime:ro"
     ports:
-      - "2053:53"
-      - "2053:53/udp"
+      - "53:53"
+      - "53:53/udp"
     mem_limit: {{ optional_tasks.compose_file.containers.coredns.memoryLimit }}
     restart: {{ optional_tasks.compose_file.restartPolicy }}
     environment:

@@ -29,7 +29,8 @@
 - name: "Disable systemd-resolved"
   service:
     name: systemd-resolved
-    state: disabled
+    state: stopped
+    enabled: false
 
 - name: "Configure resolv.conf"
   copy:

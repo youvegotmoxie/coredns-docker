@@ -1,0 +1,14 @@
+---
+- name: "Configure media server"
+  gather_facts: yes
+  hosts: media
+  vars_files:
+    - group_vars/all.yaml
+  tasks:
+    - assert:
+        that:
+        - "ansible_distribution == 'Ubuntu'"
+        fail_msg: "This playbook contains apt specific tasks that will not work on non-Ubuntu systems"
+    - import_tasks: tasks/docker-user.yaml
+    - import_tasks: tasks/coredns.yaml
+      when: optional_tasks.setup_compose is true

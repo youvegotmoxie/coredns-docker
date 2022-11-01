@@ -1,0 +1,20 @@
+version: "{{ optional_tasks.compose_file.composeVersion }}"
+services:
+{% if optional_tasks.compose_file.containers.coredns.enabled is true %}
+  radarr:
+    image: docker.io/coredns/coredns
+    container_name: coredns
+    volumes:
+      - {{ homedir }}/{{ optional_tasks.compose_basedir }}/coredns/config:/root
+      - "/etc/localtime:/etc/localtime:ro"
+    ports:
+      - "2053:53"
+      - "2053:53/udp"
+    mem_limit: {{ optional_tasks.compose_file.containers.coredns.memoryLimit }}
+    restart: {{ optional_tasks.compose_file.restartPolicy }}
+    environment:
+      - TZ="{{ optional_tasks.compose_file.environment.TZ }}"
+    command:
+    - "-conf"
+    - "/root/Corefile"
+{% endif %}

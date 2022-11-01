@@ -1,0 +1,20 @@
+---
+docker:
+  user: ubuntu
+  groups:
+  - docker
+
+optional_tasks:
+  setup_compose: true
+  compose_basedir: docker
+  compose_file_dirs:
+  - coredns
+  compose_file:
+    composeVersion: "3.7"
+    restartPolicy: unless-stopped
+    containers:
+      coredns:
+        enabled: true
+        memoryLimit: 500M
+    environment:
+      TZ: "America/Chicago"

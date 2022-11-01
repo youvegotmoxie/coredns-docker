@@ -1,8 +1,17 @@
 ---
+- name: "Create compose basedir"
+  file:
+    state: directory
+    recurse: no
+    path: "{{ homedir }}/{{ optional_tasks.compose_basedir }}"
+    owner: "{{ docker.user }}"
+    group: "{{ docker.user }}"
+    mode: 0755
+
 - name: "Create compose directories"
   file:
     state: directory
-    recurse: yes
+    recurse: no
     path: "{{ homedir }}/{{ optional_tasks.compose_basedir }}/{{ item }}"
     owner: "{{ docker.user }}"
     group: "{{ docker.user }}"

@@ -3,3 +3,7 @@
     log
     errors
 }
+
+version.bind version.server authors.bind hostname.bind id.server {
+    chaos CoreDNS info@coredns.io
+}

@@ -6,7 +6,8 @@ services:
     container_name: coredns
     volumes:
       - {{ homedir }}/{{ optional_tasks.compose_basedir }}/coredns/config:/root
-      - "/etc/localtime:/etc/localtime:ro"
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/resolv.conf:/etc/resolv.conf
     ports:
       - "53:53"
       - "53:53/udp"

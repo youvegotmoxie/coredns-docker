@@ -1,7 +1,8 @@
 .:53 {
-    forward . 8.8.8.8 1.1.1.1
+    forward . /etc/resolv.conf
     log
     errors
+    cache
 }
 
 version.bind version.server authors.bind hostname.bind id.server {

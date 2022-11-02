@@ -15,7 +15,7 @@ optional_tasks:
   - coredns/config
   compose_file:
     composeVersion: "3.7"
-    restartPolicy: unless-stopped
+    restartPolicy: always
     containers:
       coredns:
         enabled: true

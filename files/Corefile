@@ -1,4 +1,9 @@
-.:53 {
+. {
+    warnlist {
+        url https://urlhaus.abuse.ch/downloads/hostfile/ hostfile
+        reload 60m
+    }
+
     forward . /etc/resolv.conf
     log
     errors

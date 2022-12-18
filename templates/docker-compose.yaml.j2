@@ -1,7 +1,7 @@
 version: "{{ optional_tasks.compose_file.composeVersion }}"
 services:
 {% if optional_tasks.compose_file.containers.coredns.enabled is true %}
-  radarr:
+  coredns:
     image: docker.io/coredns/coredns
     container_name: coredns
     volumes:

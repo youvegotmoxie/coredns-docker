@@ -6,3 +6,5 @@ $ORIGIN donthurt.us.
 {% for entry in dns.zones.donthurt %}
 {{ entry.name }} {{ entry.ttl }} IN {{ entry.type }} {% if entry.priority is defined %}{{ entry.priority }}{% endif %} {{ entry.record }}
 {% endfor %}
+dns1 60 IN A {{ ansible_default_ipv4 }}
+dns2 60 IN A {{ ansible_default_ipv4 }}

@@ -1,5 +1,5 @@
 $ORIGIN donthurt.us.
-@       3600 IN SOA dns1.donthurt.us. dns2.donthurt.us. 2017042745 7200 3600 1209600 3600
+@       3600 IN SOA dns1.donthurt.us. dns2.donthurt.us. {{ ansible_date_time.epoch }} 7200 3600 1209600 3600
         3600 IN NS dns1.donthurt.us.
         3600 IN NS dns2.donthurt.us.
 

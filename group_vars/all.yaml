@@ -32,3 +32,8 @@ dns:
       ttl: 360
       type: A
       record: 165.227.198.53
+    - name: donthurt.us.
+      ttl: 360
+      type: MX
+      priority: 0
+      record: mail.donthurt.us.

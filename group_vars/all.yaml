@@ -28,6 +28,14 @@ optional_tasks:
 dns:
   zones:
     donthurt:
+    - name: donthurt.us.
+      ttl: 360
+      type: NS
+      record: dns1.donthurt.us.
+    - name: donthurt.us.
+      ttl: 360
+      type: NS
+      record: dns2.donthurt.us.
     - name: mail
       ttl: 360
       type: A

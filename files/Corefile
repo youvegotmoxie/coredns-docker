@@ -1,15 +1,6 @@
 . {
-    warnlist {
-        url https://urlhaus.abuse.ch/downloads/hostfile/ hostfile
-        reload 60m
-    }
-
     forward . /etc/resolv.conf
     log
     errors
     cache
-}
-
-version.bind version.server authors.bind hostname.bind id.server {
-    chaos CoreDNS info@coredns.io
 }

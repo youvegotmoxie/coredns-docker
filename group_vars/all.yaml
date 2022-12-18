@@ -13,6 +13,7 @@ optional_tasks:
   compose_file_dirs:
   - coredns
   - coredns/config
+  - coredns/config/zones
   compose_file:
     composeVersion: "3.7"
     restartPolicy: always
@@ -21,6 +22,5 @@ optional_tasks:
         enabled: true
         memoryLimit: 500M
         memoryReservation: 250M
-        cpuLimit: 0.3
     environment:
       TZ: "America/Chicago"

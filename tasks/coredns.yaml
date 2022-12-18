@@ -8,12 +8,22 @@
     mode: 0600
 
 - name: "Copy CoreDNS config"
-  copy:
-    src: Corefile
+  template:
+    src: Corefile.j2
     dest: "{{ homedir }}/{{ optional_tasks.compose_basedir }}/coredns/config/Corefile"
     owner: "{{ docker.user }}"
     group: "{{ docker.user }}"
     mode: 0600
+
+- name: "Copy DNS zones"
+  template:
+    src: zones/{{ item }}.zone.j2
+    dest: "{{ homedir }}/{{ optional_tasks.compose_basedir }}/coredns/config/zones/{{ item }}"
+    owner: "{{ docker.user }}"
+    group: "{{ docker.user }}"
+    mode: 0600
+  with_items:
+  - donthurt.us
 
 - name: "Install pip3"
   package:

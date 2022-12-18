@@ -45,19 +45,19 @@ dns:
       type: MX
       priority: 0
       record: mail.donthurt.us.
-    - name: k8s.donthurt.us.
-      ttl: 360
+    - name: k8s
+      ttl: 1400
       type: NS
       record: ns-1324.awsdns-37.org.
-    - name: k8s.donthurt.us.
-      ttl: 360
+    - name: k8s
+      ttl: 1400
       type: NS
       record: ns-1736.awsdns-25.co.uk.
-    - name: k8s.donthurt.us.
-      ttl: 360
+    - name: k8s
+      ttl: 1400
       type: NS
       record: ns-221.awsdns-27.com.
-    - name: k8s.donthurt.us.
-      ttl: 360
+    - name: k8s
+      ttl: 1400
       type: NS
       record: ns-746.awsdns-29.net.

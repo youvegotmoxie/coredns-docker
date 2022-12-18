@@ -27,7 +27,7 @@ optional_tasks:
 
 dns:
   zones:
-    donthurt:
+    donthurt.us:
     - name: donthurt.us.
       ttl: 360
       type: NS
@@ -40,6 +40,30 @@ dns:
       ttl: 360
       type: A
       record: 165.227.198.53
+    - name: imap
+      ttl: 360
+      type: A
+      record: 165.227.198.53
+    - name: webmail
+      ttl: 360
+      type: A
+      record: 165.227.198.53
+    - name: cpanel
+      ttl: 360
+      type: A
+      record: 165.227.198.53
+    - name: _dmarc
+      ttl: 1400
+      type: TXT
+      record: 'v=DMARC1\; p=reject\; sp=none\; rf=afrf\; pct=100\; ri=86400'
+    - name: donthurt.us.
+      ttl: 1400
+      type: TXT
+      record: "v=spf1 +a +mx +ip4:165.227.198.53 +mx:mail.donthurt.us +ip4:198.49.77.166 +ip4:198.49.77.167 +ip4:198.49.77.171 -all"
+    - name: default._domainkey
+      ttl: 1400
+      type: TXT
+      record: 'v=DKIM1\; k=rsa\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6s6H2dPhvt4TGmf6IKe0JfRC896/V4tjL/GMgEtwGUZ5ki0gb+/GpY22f5U7zESnFm1kOEBlErhipvCtJpIkajPJq2d0uftKVb/4M37IBCaB0wLxLkt8JEySAsdDViSOrA50MPHgC0AUbk7x5gJomJcUBzcuV8UP1kw+lKx0CaUUW5xI7Vv8t4VhS/XOwUqjeRbc6jQddYV/9VzRiaaqWhRmjlY9r1RBHWHHQVyqdiEVr3KZLBf99Z2AsvKLV1PCEp8OYrrrS/xAvrD3hnB2M6AA/baKsi2s1BwXaFxxkTbj6ZT+X+pOZYjbQipQaY4y3OhygAQCZOpBqOAfyG6EtQIDAQAB'
     - name: donthurt.us.
       ttl: 360
       type: MX

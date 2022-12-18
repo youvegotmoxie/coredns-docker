@@ -3,6 +3,6 @@ $ORIGIN donthurt.us.
         3600 IN NS dns1.donthurt.us.
         3600 IN NS dns2.donthurt.us.
 
-{% for entry in dns.zones.donthurt.us %}
+{% for entry in dns.zones.donthurt %}
 {{ entry.name }} {{ entry.ttl }} {{ entry.type }} {{ entry.record }}
 {% endfor %}

@@ -27,7 +27,7 @@ optional_tasks:
 
 dns:
   zones:
-    donthurt.us:
+    donthurt:
     - name: mail
       ttl: 360
       type: A

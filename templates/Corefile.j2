@@ -1,0 +1,11 @@
+donthurt.us. {
+  file /root/zones/donthurt.us.zone
+  reload 30s
+}
+
+. {
+    forward . /etc/resolv.conf
+    log
+    errors
+    cache
+}

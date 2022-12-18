@@ -7,13 +7,12 @@ services:
     volumes:
       - {{ homedir }}/{{ optional_tasks.compose_basedir }}/coredns/config:/root
       - /etc/localtime:/etc/localtime:ro
-      - /etc/resolv.conf:/etc/resolv.conf
+      - /etc/resolv.conf:/etc/resolv.conf:ro
     ports:
       - "53:53"
       - "53:53/udp"
     mem_limit: {{ optional_tasks.compose_file.containers.coredns.memoryLimit }}
     mem_reservation: {{ optional_tasks.compose_file.containers.coredns.memoryReservation }}
-    cpus: {{ optional_tasks.compose_file.containers.coredns.cpuLimit }}
     restart: {{ optional_tasks.compose_file.restartPolicy }}
     environment:
       - TZ="{{ optional_tasks.compose_file.environment.TZ }}"

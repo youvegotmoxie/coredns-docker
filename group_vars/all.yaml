@@ -24,3 +24,11 @@ optional_tasks:
         memoryReservation: 250M
     environment:
       TZ: "America/Chicago"
+
+dns:
+  zones:
+    donthurt.us:
+    - name: mail
+      ttl: 360
+      type: A
+      record: 165.227.198.53

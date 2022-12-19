@@ -3,7 +3,7 @@
 #### Configurables
 - `group_vars/all.yaml`
 
-#### Prerequisites
+#### Prerequisites for installing the Datadog agent
 - `ansible-galaxy install datadog.datadog` _(optional install datadog agent)_
 - Configure `group_vars/datadog.yaml`
 - Create the `group_vars/datadog-api.yaml` file that contains a variable `dd_api_key` with your Datadog API key

@@ -1,0 +1,15 @@
+---
+baseTags:
+- env:prod
+- region:ash
+- availability-zone:ash-dc2
+
+excludeMounts:
+- /var/lib/docker/overlay2/(.*)/merged$
+- /run/docker/netns/(.*)
+
+systemdUnits:
+- docker
+- ssh
+- rsyslog
+- systemd-timesyncd

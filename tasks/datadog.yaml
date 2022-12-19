@@ -1,0 +1,15 @@
+---
+- name: "Copy Datadog Configuration Files"
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "dd-agent"
+    group: "dd-agent"
+    mode: 0640
+  with_items:
+  - { src: 'datadog.yaml.j2', dest: '/etc/datadog-agent/datadog.yaml' }
+  - { src: 'datadog-docker.yaml.j2', dest: '/etc/datadog-agent/conf.d/docker.d/conf.yaml' }
+  - { src: 'datadog-disk.yaml.j2', dest: '/etc/datadog-agent/conf.d/disk.d/conf.yaml' }
+  - { src: 'datadog-systemd.yaml.j2', dest: '/etc/datadog-agent/conf.d/systemd.d/conf.yaml' }
+  notify:
+  - restart-datadog

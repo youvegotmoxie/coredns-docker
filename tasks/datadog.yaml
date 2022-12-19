@@ -5,6 +5,51 @@
     extensions:
       - 'yaml'
 
+- name: "Include Datadog Galaxy role"
+  include_role:
+    name: datadog.datadog
+  vars:
+    datadog_api_key: "{{ dd_api_key }}"
+    datadog_agent_major_version: "7"
+  tags:
+  - install-datadog
+
+- name: "Setup dd-agent user for Docker commands"
+  user:
+    name: dd-agent
+    groups: docker
+    append: yes
+
+- name: "Create .ssh directory"
+  file:
+    state: directory
+    recurse: no
+    path: "/opt/datadog-agent/.ssh"
+    owner: "{{ sshConfig['user'] }}"
+    group: "{{ sshConfig['user'] }}"
+    mode: 0600
+
+- name: "Create dd-agent SSH key"
+  openssh_keypair:
+    path: "{{ sshConfig['sshKey'] }}"
+    size: 4096
+    type: rsa
+  register: ssh_key
+
+- name: "Add dd-agent SSH key to authorized_keys"
+  authorized_key:
+    user: "{{ sshConfig['user'] }}"
+    state: present
+    key: "{{ ssh_key.public_key }}"
+
+- name: "Fix file and directory ownership"
+  file:
+    path: "/opt/datadog-agent/.ssh"
+    recurse: yes
+    owner: "{{ sshConfig['user'] }}"
+    group: "{{ sshConfig['user'] }}"
+  changed_when: no
+
 - name: "Copy Datadog Configuration Files"
   template:
     src: "{{ item.src }}"

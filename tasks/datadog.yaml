@@ -11,6 +11,25 @@
   vars:
     datadog_api_key: "{{ dd_api_key }}"
     datadog_agent_major_version: "7"
+    datadog_config:
+      tags:
+        "{{ custom.tag }}"
+      env: prod
+      inventories_configuration_enabled: true
+      logs_enabled: true
+      logs_config:
+        container_collect_all: false
+      process_config:
+        process_collection:
+          enabled: true
+        container_collection:
+          enabled: true
+        process_discovery:
+          enabled: true
+  with_items:
+  - { tag: "{{ baseTags }}" }
+  loop_control:
+    loop_var: custom
   tags:
   - install-datadog
 
@@ -27,7 +46,7 @@
     path: "/opt/datadog-agent/.ssh"
     owner: "{{ sshConfig['user'] }}"
     group: "{{ sshConfig['user'] }}"
-    mode: 0600
+    mode: 0700
 
 - name: "Create dd-agent SSH key"
   openssh_keypair:
@@ -58,7 +77,6 @@
     group: "dd-agent"
     mode: 0640
   with_items:
-  - { src: 'datadog.yaml.j2', dest: '/etc/datadog-agent/datadog.yaml' }
   - { src: 'datadog-docker.yaml.j2', dest: '/etc/datadog-agent/conf.d/docker.d/conf.yaml' }
   - { src: 'datadog-disk.yaml.j2', dest: '/etc/datadog-agent/conf.d/disk.d/conf.yaml' }
   - { src: 'datadog-systemd.yaml.j2', dest: '/etc/datadog-agent/conf.d/systemd.d/conf.yaml' }

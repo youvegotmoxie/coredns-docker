@@ -22,4 +22,13 @@ services:
     command:
     - "-conf"
     - "/root/Corefile"
+{% if optional_tasks.compose_file.containers.coredns.prometheus.enabled is true and optional_tasks.compose_file.containers.coredns.datadog.enabled is true %}
+    labels:
+      com.datadoghq.ad.check_names: '["coredns"]'
+      com.datadoghq.ad.init_configs: '[{}]'
+      com.datadoghq.ad.instances: '[{"openmetrics_endpoint": "http://%%host%%:9153/metrics", "metrics": ["coredns_*"], "tags": ["dns-pod:%%host%%"]}]'
+{% endif %}
+{% if optional_tasks.compose_file.containers.coredns.datadog.enabled is true %}
+      com.datadoghq.ad.logs: '[{"source": "coredns", "service": "coredns", "sourcecategory": "docker"}]'
+{% endif %}
 {% endif %}

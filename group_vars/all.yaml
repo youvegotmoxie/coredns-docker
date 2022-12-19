@@ -23,7 +23,9 @@ optional_tasks:
         memoryLimit: 500M
         memoryReservation: 250M
         prometheus:
-          enabled: false
+          enabled: true
+        datadog:
+          enabled: true
     environment:
       TZ: "America/Chicago"
 

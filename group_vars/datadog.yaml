@@ -13,3 +13,7 @@ systemdUnits:
 - ssh
 - rsyslog
 - systemd-timesyncd
+
+sshConfig:
+  sshKey: "/opt/datadog-agent/.ssh/id_rsa"
+  user: "dd-agent"

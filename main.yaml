@@ -4,8 +4,6 @@
   hosts: all
   vars_files:
     - group_vars/all.yaml
-    - group_vars/datadog-api.yaml
-    - group_vars/datadog.yaml
   tasks:
     - assert:
         that:
@@ -19,6 +17,8 @@
       when:
       - optional_tasks.setup_compose is true
       - optional_tasks.compose_file.containers.coredns.datadog.enabled is true
+      tags:
+      - datadog
 
   handlers:
   - name: "restart-docker"

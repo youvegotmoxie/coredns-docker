@@ -1,4 +1,10 @@
 ---
+- name: "Load Datadog variables"
+  include_vars:
+    dir: ../group_vars
+    extensions:
+      - 'yaml'
+
 - name: "Copy Datadog Configuration Files"
   template:
     src: "{{ item.src }}"
@@ -11,5 +17,7 @@
   - { src: 'datadog-docker.yaml.j2', dest: '/etc/datadog-agent/conf.d/docker.d/conf.yaml' }
   - { src: 'datadog-disk.yaml.j2', dest: '/etc/datadog-agent/conf.d/disk.d/conf.yaml' }
   - { src: 'datadog-systemd.yaml.j2', dest: '/etc/datadog-agent/conf.d/systemd.d/conf.yaml' }
+  - { src: 'datadog-ssh.yaml.j2', dest: '/etc/datadog-agent/conf.d/ssh_check.d/conf.yaml' }
+  - { src: 'datadog-ntp.yaml.j2', dest: '/etc/datadog-agent/conf.d/ntp.d/conf.yaml' }
   notify:
   - restart-datadog

@@ -33,39 +33,44 @@ optional_tasks:
 dns:
   zones:
     donthurt.us:
-    - name: mail
-      ttl: 360
-      type: A
-      record: 165.227.198.53
-    - name: imap
-      ttl: 360
-      type: A
-      record: 165.227.198.53
     - name: webmail
-      ttl: 360
-      type: A
-      record: 165.227.198.53
-    - name: cpanel
       ttl: 360
       type: A
       record: 165.227.198.53
     - name: _dmarc
       ttl: 1400
       type: TXT
-      record: 'v=DMARC1\; p=reject\; sp=none\; rf=afrf\; pct=100\; ri=86400'
+      record: 'v=DMARC1\; p=none'
     - name: donthurt.us.
       ttl: 1400
       type: TXT
-      record: "v=spf1 +a +mx +ip4:165.227.198.53 +mx:mail.donthurt.us +ip4:198.49.77.166 +ip4:198.49.77.167 +ip4:198.49.77.171 -all"
-    - name: default._domainkey
+      record: "v=spf1 include:_spf.protonmail.ch mx ~all"
+    - name: protonmail._domainkey
+      ttl: 360
+      type: CNAME
+      record: protonmail.domainkey.dj57gimeviwdkoszrvhx7ncym4qynnlv4zlln7qd53y6h7xbx3qrq.domains.proton.ch.
+    - name: protonmail2._domainkey
+      ttl: 360
+      type: CNAME
+      record: protonmail2.domainkey.dj57gimeviwdkoszrvhx7ncym4qynnlv4zlln7qd53y6h7xbx3qrq.domains.proton.ch.
+    - name: protonmail3._domainkey
+      ttl: 360
+      type: CNAME
+      record: protonmail3.domainkey.dj57gimeviwdkoszrvhx7ncym4qynnlv4zlln7qd53y6h7xbx3qrq.domains.proton.ch.
+    - name: donthurt.us.
       ttl: 1400
       type: TXT
-      record: 'v=DKIM1\; k=rsa\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6s6H2dPhvt4TGmf6IKe0JfRC896/V4tjL/GMgEtwGUZ5ki0gb+/GpY22f5U7zESnFm1kOEBlErhipvCtJpIkajPJq2d0uftKVb/4M37IBCaB0wLxLkt8JEySAsdDViSOrA50MPHgC0AUbk7x5gJomJcUBzcuV8UP1kw+lKx0CaUUW5xI7Vv8t4VhS/XOwUqjeRbc6jQddYV/9VzRiaaqWhRmjlY9r1RBHWHHQVyqdiEVr3KZLBf99Z2AsvKLV1PCEp8OYrrrS/xAvrD3hnB2M6AA/baKsi2s1BwXaFxxkTbj6ZT+X+pOZYjbQipQaY4y3OhygAQCZOpBqOAfyG6EtQIDAQAB'
+      record: 'protonmail-verification=adb491a754659e7da8dd3983fc978c361304ae5e'
     - name: donthurt.us.
       ttl: 360
       type: MX
-      priority: 0
-      record: mail.donthurt.us.
+      priority: 10
+      record: mail.protonmail.ch.
+    - name: donthurt.us.
+      ttl: 360
+      type: MX
+      priority: 20
+      record: mailsec.protonmail.ch.
     - name: k8s
       ttl: 1400
       type: NS

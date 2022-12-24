@@ -1,0 +1,69 @@
+---
+dns:
+  zones:
+    donthurt.us:
+    - name: webmail
+      ttl: 360
+      type: A
+      record: 165.227.198.53
+    - name: _dmarc
+      ttl: 1400
+      type: TXT
+      record: 'v=DMARC1\; p=none'
+    - name: donthurt.us.
+      ttl: 1400
+      type: TXT
+      record: 'v=spf1 include:_spf.google.com ~all'
+    - name: donthurt.us.
+      ttl: 1400
+      type: TXT
+      record: 'google-site-verification=WsmRUIPReBSaAvfuMUCY5x4WvLveKI33zT1b5MG4QBI'
+    - name: donthurt.us.
+      ttl: 360
+      type: MX
+      priority: 1
+      record: aspmx.l.google.com.
+    - name: donthurt.us.
+      ttl: 360
+      type: MX
+      priority: 5
+      record: alt1.aspmx.l.google.com.
+    - name: donthurt.us.
+      ttl: 360
+      type: MX
+      priority: 5
+      record: alt2.aspmx.l.google.com.
+    - name: donthurt.us.
+      ttl: 360
+      type: MX
+      priority: 10
+      record: alt3.aspmx.l.google.com.
+    - name: donthurt.us.
+      ttl: 360
+      type: MX
+      priority: 10
+      record: alt4.aspmx.l.google.com.
+    - name: k8s
+      ttl: 1400
+      type: NS
+      record: ns-1324.awsdns-37.org.
+    - name: k8s
+      ttl: 1400
+      type: NS
+      record: ns-1736.awsdns-25.co.uk.
+    - name: k8s
+      ttl: 1400
+      type: NS
+      record: ns-221.awsdns-27.com.
+    - name: k8s
+      ttl: 1400
+      type: NS
+      record: ns-746.awsdns-29.net.
+    - name: donthurt.us.
+      ttl: 360
+      type: NS
+      record: dns1.donthurt.us.
+    - name: donthurt.us.
+      ttl: 360
+      type: NS
+      record: dns2.donthurt.us.

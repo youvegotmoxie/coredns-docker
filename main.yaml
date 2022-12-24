@@ -4,6 +4,7 @@
   hosts: all
   vars_files:
     - group_vars/all.yaml
+    - group_vars/dns-zones.yaml
   tasks:
     - assert:
         that:

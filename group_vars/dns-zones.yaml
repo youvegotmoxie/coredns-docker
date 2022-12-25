@@ -2,10 +2,6 @@
 dns:
   zones:
     donthurt.us:
-    - name: webmail
-      ttl: 360
-      type: A
-      record: 165.227.198.53
     - name: _dmarc
       ttl: 1400
       type: TXT

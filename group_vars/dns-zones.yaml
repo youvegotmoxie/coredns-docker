@@ -10,6 +10,10 @@ dns:
       ttl: 1400
       type: TXT
       record: 'v=spf1 include:_spf.google.com ~all'
+    - name: default._domainkey
+      ttl: 1400
+      type: TXT
+      record: '"v=DKIM1\; k=rsa\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs1UHZ8nd6tIxErTAKOeSM2umn3xApJQMVgYO1RfS0Sk6Qkuhvz5xfAon/EOlipEye/b3uWaehQN+tGA+4W/npFTXZakKCgsFptNS/UOWnG4ayFN7F9nfdyOzTwwtC5grb9KgKV1OrON3ji60QEZgd2q7CnFZYmb9hOVQezxjPYeiyPngEVGPhnuytomyZxh+VgngxfxXNsFmNsTTYm4jxz/I/MkUo6q9SqPgs29uuTLfEP+oxdIdETiDC9/Y+Vjsik3YIctVt3hWaVo7v58XKSbz0m6gHmXRQRUj4koEyqQUyx8rfhYOWm6RHzXiT3vdehSEwD6zzLdqiC/slQ8jGQIDAQAB"'
     - name: donthurt.us.
       ttl: 1400
       type: TXT

@@ -24,7 +24,7 @@ jobs:
         with:
           playbook: ${{ env.PLAYBOOK }}
           inventory: remote-inventory
-          galaxy_file: galaxy-requirements.yaml
+          galaxy_file: ansible-requirements.txt
           private_key: ${{ secrets.RSA_KEY_MAIN }}
           vault_password: ${{ secrets.ANSIBLE_VAULT }}
           check: true

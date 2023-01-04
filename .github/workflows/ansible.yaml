@@ -29,28 +29,3 @@ jobs:
           vault_password: ${{ secrets.ANSIBLE_VAULT }}
           check: true
           diff: true
-          skip_tags: datadog
-     # - name: Run playbook
-     #   uses: dawidd6/action-ansible-playbook@v2
-     #   with:
-     #     # Required, playbook filepath
-     #     playbook: ${{ env.PLAYBOOK }}
-     #     # Optional, directory where playbooks live
-     #     directory: ./
-     #     # Optional, SSH private key
-     #     key: ${{ secrets.RSA_KEY_MAIN }}
-     #     # Optional, literal inventory file contents
-     #     inventory: |
-     #       [all]
-     #       5.161.154.26 ansible_user=root ansible_port=22
-
-     #     # Optional, SSH known hosts file content
-     #     # Optional, encrypted vault password
-     #     vault_password: ${{ secrets.ANSIBLE_VAULT }}
-     #     # Optional, galaxy requirements filepath
-     #     requirements: ansible-requirements.yaml
-     #     # Optional, additional flags to pass to ansible-playbook
-     #     options: |
-     #       --verbose
-     #       --check
-     #       --diff

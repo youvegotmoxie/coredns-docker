@@ -1,2 +1,4 @@
+---
 collections:
-- src: datadog.datadog
+- name: datadog.datadog
+  type: galaxy

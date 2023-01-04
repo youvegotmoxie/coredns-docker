@@ -1,4 +1,3 @@
 ---
-collections:
-- name: datadog.datadog
-  type: galaxy
+requirements:
+- datadog.datadog

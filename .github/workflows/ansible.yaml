@@ -7,6 +7,8 @@ on:
 
 env:
   PLAYBOOK: main.yaml
+  ANSIBLE_HOST_KEY_CHECKING: 'false'
+  ANSIBLE_DEPRECATION_WARNINGS: 'false'
 
 jobs:
   ansible-dry-run:
@@ -18,16 +20,12 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run playbook
-        uses: dawidd6/action-ansible-playbook@v2
+        uses: arillso/action.playbook@master
         with:
           playbook: ${{ env.PLAYBOOK }}
-          directory: ./
-          key: ${{ secrets.RSA_KEY_MAIN }}
-          inventory: |
-            [all]
-            5.161.154.26 ansible_user=root ansible_port=22
+          inventory: remote-inventory
+          galaxy_file: galaxy-requirements.yaml
+          private_key: ${{ secrets.RSA_KEY_MAIN }}
           vault_password: ${{ secrets.ANSIBLE_VAULT }}
-          requirements: galaxy-requirements.yaml
-          options: |
-            --check
-            --diff
+          check: true
+          diff: true

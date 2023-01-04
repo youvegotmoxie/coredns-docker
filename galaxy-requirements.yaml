@@ -1,2 +1,2 @@
 collections:
-- datadog.datadog
+- src: datadog.datadog

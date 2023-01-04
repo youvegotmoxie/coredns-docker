@@ -1,0 +1,33 @@
+---
+name: Ansible
+
+on:
+  pull_request:
+    branches: [master, main]
+
+env:
+  PLAYBOOK: main.yaml
+
+jobs:
+  ansible-dry-run:
+    name: Run Ansible Playbook (dry run)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Run playbook
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          playbook: ${{ env.PLAYBOOK }}
+          directory: ./
+          key: ${{ secrets.RSA_KEY_MAIN }}
+          inventory: |
+            [all]
+            5.161.154.26 ansible_user=root ansible_port=22
+          vault_password: ${{ secrets.ANSIBLE_VAULT }}
+          requirements: galaxy-requirements.yaml
+          options: |
+            --check
+            --diff

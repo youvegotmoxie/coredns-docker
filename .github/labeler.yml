@@ -5,5 +5,3 @@ ansible:
 - handlers/*
 - templates/*
 - inventory
-docker:
-- templates/media-stack.yaml.j2

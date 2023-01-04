@@ -19,13 +19,17 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Get Key
+        uses: actions/checkout@v2
+        run: |
+          echo ${{ secrets.RSA_KEY_MAIN }} > id_rsa
       - name: Run playbook
         uses: arillso/action.playbook@master
         with:
           playbook: ${{ env.PLAYBOOK }}
           inventory: remote-inventory
           galaxy_file: ansible-requirements.yaml
-          private_key: ${{ secrets.RSA_KEY_MAIN }}
+          private_key: id_rsa
           vault_password: ${{ secrets.ANSIBLE_VAULT }}
           check: true
           diff: true

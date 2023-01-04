@@ -1,9 +1,9 @@
 ---
-name: Ansible
+name: Ansible Lint
 
 on:
   pull_request:
-    types: [ closed ]
+    branches: [master, main]
 
 env:
   PLAYBOOK: main.yaml
@@ -11,15 +11,15 @@ env:
   ANSIBLE_DEPRECATION_WARNINGS: 'false'
 
 jobs:
-  ansible-playbook:
-    name: Run Ansible Playbook
+  ansible-dry-run:
+    name: Run Ansible Playbook (dry run)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Run Playbook
+      - name: Run playbook
         uses: arillso/action.playbook@master
         with:
           playbook: ${{ env.PLAYBOOK }}
@@ -27,3 +27,5 @@ jobs:
           galaxy_file: ansible-requirements.yaml
           private_key: ${{ secrets.RSA_KEY_MAIN }}
           vault_password: ${{ secrets.ANSIBLE_VAULT }}
+          check: true
+          diff: true

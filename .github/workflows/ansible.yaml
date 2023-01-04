@@ -1,0 +1,29 @@
+---
+name: Ansible
+
+on:
+  pull_request:
+    types: [ closed ]
+
+env:
+  PLAYBOOK: main.yaml
+  ANSIBLE_HOST_KEY_CHECKING: 'false'
+  ANSIBLE_DEPRECATION_WARNINGS: 'false'
+
+jobs:
+  ansible-playbook:
+    name: Run Ansible Playbook
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Run Playbook
+        uses: arillso/action.playbook@master
+        with:
+          playbook: ${{ env.PLAYBOOK }}
+          inventory: remote-inventory
+          galaxy_file: ansible-requirements.yaml
+          private_key: ${{ secrets.RSA_KEY_MAIN }}
+          vault_password: ${{ secrets.ANSIBLE_VAULT }}

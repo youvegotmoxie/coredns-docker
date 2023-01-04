@@ -1,0 +1,2 @@
+[all]
+5.161.154.26 ansible_user=root ansible_port=22

@@ -1,0 +1,31 @@
+---
+name: Ansible Lint
+
+on:
+  pull_request:
+    branches: [master, main]
+
+env:
+  PLAYBOOK: main.yaml
+  ANSIBLE_HOST_KEY_CHECKING: 'false'
+  ANSIBLE_DEPRECATION_WARNINGS: 'false'
+
+jobs:
+  ansible-dry-run:
+    name: Run Ansible Playbook (dry run)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Run playbook
+        uses: arillso/action.playbook@master
+        with:
+          playbook: ${{ env.PLAYBOOK }}
+          inventory: remote-inventory
+          galaxy_file: ansible-requirements.yaml
+          private_key: ${{ secrets.RSA_KEY_MAIN }}
+          vault_password: ${{ secrets.ANSIBLE_VAULT }}
+          check: true
+          diff: true

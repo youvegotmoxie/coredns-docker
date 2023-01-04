@@ -7,3 +7,5 @@ collections:
   type: galaxy
 - name: community.crypto
   type: galaxy
+- name: ansible.posix
+  type: galaxy

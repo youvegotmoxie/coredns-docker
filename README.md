@@ -1,4 +1,4 @@
-## CoreDNS Docker Compose
+# CoreDNS Docker Compose
 
 #### Configurables
 - `group_vars/all.yaml`

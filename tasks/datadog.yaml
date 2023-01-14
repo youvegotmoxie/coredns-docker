@@ -26,6 +26,8 @@
           enabled: true
         process_discovery:
           enabled: true
+    network_probe:
+      enabled: true
   with_items:
   - { tag: "{{ baseTags }}" }
   loop_control:

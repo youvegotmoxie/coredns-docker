@@ -10,11 +10,8 @@
     name: datadog.datadog
   vars:
     datadog_api_key: "{{ dd_api_key }}"
-    datadog_agent_major_version: "7"
+    datadog_agent_major_version: "{{ dd_major_ver }}"
     datadog_config:
-      tags:
-        "{{ custom.tag }}"
-      env: prod
       inventories_configuration_enabled: true
       logs_enabled: true
       logs_config:
@@ -23,15 +20,11 @@
         process_collection:
           enabled: true
         container_collection:
-          enabled: true
+          enabled: false
         process_discovery:
           enabled: true
     network_config:
       enabled: true
-  with_items:
-  - { tag: "{{ baseTags }}" }
-  loop_control:
-    loop_var: custom
   tags:
   - install-datadog
 

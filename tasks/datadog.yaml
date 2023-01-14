@@ -26,10 +26,10 @@
           enabled: true
         process_discovery:
           enabled: true
-      system_probe_config:
-        enabled: true
-        network_probe:
-          enabled: true
+    system_probe_config:
+      enabled: true
+    network_probe:
+      enabled: true
   with_items:
   - { tag: "{{ baseTags }}" }
   loop_control:

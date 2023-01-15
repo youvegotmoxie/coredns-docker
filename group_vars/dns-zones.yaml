@@ -2,6 +2,18 @@
 dns:
   zones:
     donthurt.us:
+    - name: hv-0-us-central-1
+      ttl: 360
+      type: A
+      record: '192.168.1.73'
+    - name: es
+      ttl: 360
+      type: A
+      record: '192.168.1.16'
+    - name: github-runner
+      ttl: 360
+      type: A
+      record: '192.168.1.29'
     - name: _dmarc
       ttl: 1400
       type: TXT

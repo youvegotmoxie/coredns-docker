@@ -2,14 +2,10 @@
 dns:
   zones:
     donthurt.us:
-    - name: hv-0-us-central-1
+    - name: grafana
       ttl: 360
       type: A
-      record: '192.168.1.73'
-    - name: es
-      ttl: 360
-      type: A
-      record: '192.168.1.16'
+      record: '192.168.1.58'
     - name: github-runner
       ttl: 360
       type: A

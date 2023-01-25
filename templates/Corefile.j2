@@ -4,8 +4,8 @@
     reload 10s
   }
 
-  log {
-    class all '{"host": "{remote}:{port}", "id": "{>id}", "record": "{type} {class} {name} {proto} {size} {>do} {>bufsize}", "response_code": "{rcode}", "response_flags": "{>rflags}", "response_size": "{rsize}", "response_time": "{duration}"}'
+  log . "host: {remote}:{port} - id: {>id} record_type: {type} class: {class} record_name: {name} protocol: {proto} response_size: {size} buffer_size: {>bufsize} response_code: {rcode} response_flags: {>rflags} response_size: {rsize} request_duration: {duration}" {
+    class all
   }
 
   cache {

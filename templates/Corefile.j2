@@ -4,7 +4,7 @@
     reload 10s
   }
 
-  log . "HOST: {remote}:{port} - ID: {>id} RECORD_TYPE: {type} RECORD_NAME: {name} PROTOCOL: {proto} RESPONSE_CODE: {rcode} FLAGS: {>rflags} RESPONSE_SIZE: {rsize} DURATION: {duration}" {
+  log . "HOST: {remote}:{port} - ID: {>id} - RECORD_TYPE: {type} - RECORD_NAME: {name} - PROTOCOL: {proto} - RESPONSE_CODE: {rcode} - FLAGS: {>rflags} - RESPONSE_SIZE: {rsize} - DURATION: {duration}" {
     class all
   }
 

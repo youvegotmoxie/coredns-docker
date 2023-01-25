@@ -5,7 +5,7 @@
   }
 
   log {
-    class all
+    class all '{"host": "{remote}:{port}", "id": "{>id}", "record": "{type} {class} {name} {proto} {size} {>do} {>bufsize}", "response_code": "{rcode}", "response_flags": "{>rflags}", "response_size": "{rsize}", "response_time": "{duration}"}'
   }
 
   cache {

@@ -4,7 +4,7 @@
     reload 10s
   }
 
-  log . "HOST: {remote}:{port} - ID: {>id} - RECORD_TYPE: {type} - RECORD_NAME: {name} - PROTOCOL: {proto} - RESPONSE_CODE: {rcode} - FLAGS: {>rflags} - RESPONSE_SIZE: {rsize} - DURATION: {duration}" {
+  log . "host: {remote}:{port} id: {>id} record_type: {type} record: {name} protocol: {proto} response_code: {rcode} size: {rsize} latency: {duration}" {
     class all
   }
 
@@ -18,7 +18,7 @@
     consolidate 30s "^Failed to .+"
   }
 {% if optional_tasks.compose_file.containers.coredns.prometheus.enabled is true %}
-  prometheus 0.0.0.0:9153
+  prometheus 127.0.0.1:9153
 {% endif %}
 }
 {% endfor %}

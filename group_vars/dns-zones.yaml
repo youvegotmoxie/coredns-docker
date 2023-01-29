@@ -6,6 +6,10 @@ dns:
       ttl: 360
       type: A
       record: '192.168.1.74'
+    - name: loki-push
+      ttl: 360
+      type: A
+      record: '192.168.1.74'
     - name: github-runner
       ttl: 360
       type: A

@@ -2,6 +2,10 @@
 dns:
   zones:
     donthurt.us:
+    - name: minio
+      ttl: 360
+      type: A
+      record: '192.168.1.75'
     - name: grafana
       ttl: 360
       type: A

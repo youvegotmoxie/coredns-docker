@@ -5,7 +5,7 @@ dns:
     - name: minio
       ttl: 360
       type: A
-      record: '192.168.1.75'
+      record: '192.168.1.74'
     - name: grafana
       ttl: 360
       type: A

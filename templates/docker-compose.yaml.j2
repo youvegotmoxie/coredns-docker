@@ -12,7 +12,7 @@ services:
       - "53:53"
       - "53:53/udp"
 {% if optional_tasks.compose_file.containers.coredns.prometheus.enabled is true %}
-      - "127.0.0.1:9153:9153"
+      - "0.0.0.0:9153:9153"
 {% endif %}
     mem_limit: {{ optional_tasks.compose_file.containers.coredns.memoryLimit }}
     mem_reservation: {{ optional_tasks.compose_file.containers.coredns.memoryReservation }}

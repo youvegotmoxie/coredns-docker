@@ -18,7 +18,7 @@
     consolidate 30s "^Failed to .+"
   }
 {% if optional_tasks.compose_file.containers.coredns.prometheus.enabled is true %}
-  prometheus 127.0.0.1:9153
+  prometheus 0.0.0.0:9153
 {% endif %}
 }
 {% endfor %}
